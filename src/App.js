@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+function FavoriteFoods() {
+  // List of foods
+  const foods = ["Pizza", "Burger", "Ice Cream", "Pasta", "Biryani"];
+
+  // State for message
+  const [message, setMessage] = useState("Select a food that you love!");
+
+  // Function to update message
+  const handleClick = (food) => {
+    setMessage(`I love ${food}!`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: "center", marginTop: "40px" }}>
+      <h2>My Favorite Foods</h2>
+
+      {/* Food List */}
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {foods.map((food, index) => (
+          <li key={index} style={{ margin: "10px" }}>
+            {food}{" "}
+            <button onClick={() => handleClick(food)}>
+              Love this
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Message Display */}
+      <h3>{message}</h3>
     </div>
   );
 }
 
-export default App;
+export default FavoriteFoods;
