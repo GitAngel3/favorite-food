@@ -14,7 +14,7 @@ function FavoriteFoods() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h2>My Favorite Foods</h2>
+      <h2>Select a food that you love!</h2>
 
       {/* Food List */}
       <ul style={{ listStyle: "none", padding: 0 }}>
